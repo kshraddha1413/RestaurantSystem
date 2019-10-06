@@ -1,20 +1,20 @@
 import java.util.HashMap;
 
 
-class Desert {
+class Desert implements FoodItem{
 	String desertDishName;
 	double price;
 	static HashMap<String, Double> desertmap = new HashMap<String, Double>();
 
-	public void addDesertDish(String desertDishName, double price) {
-		desertmap.put(desertDishName, price);
+	public void addFoodItem(String itemName, double price) {
+		desertmap.put(itemName, price);
 	}
 
-	public void updateDesertDish(String desertDishName, double price) {
-		desertmap.put(desertDishName, price);
+	public void updateFoodItem(String itemName, Double price) {
+		desertmap.put(itemName, price);
 	}
 
-	public HashMap<String, Double> getDesertMap() {
+	public HashMap<String, Double> getFoodListMap(){
 		return desertmap;
 	}
 

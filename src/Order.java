@@ -1,13 +1,24 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Random;
 
 class Order {
-	int orderId;
+	Menu menu = new Menu();
+	HashMap<String, Integer> CustomerOrderMap = new HashMap<>();
+	static int orderId = 1;
 
-	static HashMap<String, Integer> CustomerOrderMap = new HashMap<>();
+	Order() {
+		orderId++;
+	}
 
 	public void AdditemToCustomerOrder(String FoodItem, Integer quantity) {
-		CustomerOrderMap.put(FoodItem, quantity);
+		HashMap<String, Double> MenuMap = menu.getMenuItems();
+		if (MenuMap.containsKey(FoodItem)) {
+			CustomerOrderMap.put(FoodItem, quantity);
+		} else {
+			System.out.println(FoodItem + " is not available");
+		}
 	}
 
 	public void CoustmerOrderPrint() {

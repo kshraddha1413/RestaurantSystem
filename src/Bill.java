@@ -2,7 +2,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Bill {
-	static HashMap<Integer, BillHelper> billHelpermap = new HashMap<Integer, BillHelper>();
+	HashMap<Integer, BillHelper> billHelpermap = new HashMap<>();;
+	int orderId;
+
+	Bill(int orderId) {
+		this.orderId = orderId;
+	}
 
 	public void CustomerBillCalculate(HashMap<String, Integer> customerOrderMap) {
 
@@ -34,10 +39,12 @@ class Bill {
 	}
 
 	public void getBillPrint() {
-		System.out.println("FoodItem    priceperUnit 	Quantity   TotalPrice");
+		System.out.println("ORDER NO: " + orderId);
+		System.out.println("FoodItem    price/Unit 	Quantity   TotalPrice");
 		System.out.println("***********************************");
 		for (BillHelper bh : billHelpermap.values()) {
-			System.out.println(bh.itemOrderd + " :	 " + bh.orderdItemPrice + "  : 		" + bh.orderItemquantity + " : 	" + bh.totalItemPrice);
+			System.out.println(bh.itemOrderd + " :	        " + bh.orderdItemPrice + "  : 		" + bh.orderItemquantity
+					+ " : 	" + bh.totalItemPrice);
 		}
 		System.out.println("***********************************");
 		System.out.println("total amount :" + getTotal());

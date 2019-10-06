@@ -17,45 +17,45 @@ class Menu {
 
 	public void addNewItem(String itemType, String itemName, double price) {
 
-		if (itemType == "apetizer") {
+		if (itemType == ConstantFood.APPETIZER) {
 			Appetizer apeObj = new Appetizer();
-			HashMap<String, Double> apelList = apeObj.getAptMap();
+			HashMap<String, Double> apelList = apeObj.getFoodListMap();
 			apelList.put(itemName, price);
-		} else if (itemType == "maindish") {
+		} else if (itemType == ConstantFood.MAINDISH) {
 			MainCourse mainobj = new MainCourse();
-			HashMap<String, Double> mainDishList = mainobj.getmainmap();
+			HashMap<String, Double> mainDishList = mainobj.getFoodListMap();
 			mainDishList.put(itemName, price);
 		}
-		if (itemType == "desert") {
+		if (itemType == ConstantFood.DESSERT) {
 			Desert desrtobj = new Desert();
-			HashMap<String, Double> desertList = desrtobj.getDesertMap();
+			HashMap<String, Double> desertList = desrtobj.getFoodListMap();
 			desertList.put(itemName, price);
 		}
 
 	}
 
 	public HashMap<String, Double> getMenuItems() {
-		MenuItems.putAll(ape.getAptMap());
-		MenuItems.putAll(main.getmainmap());
-		MenuItems.putAll(des.getDesertMap());
+		MenuItems.putAll(ape.getFoodListMap());
+		MenuItems.putAll(main.getFoodListMap());
+		MenuItems.putAll(des.getFoodListMap());
 		return MenuItems;
 	}
 
 	public void printMenu() {
 		System.out.println("******Apetizers :**********");
-		HashMap<String, Double> aptmap = (ape.getAptMap());
+		HashMap<String, Double> aptmap = (ape.getFoodListMap());
 		for (Map.Entry<String, Double> i : aptmap.entrySet()) {
 			System.out.println(i.getKey() + " : " + i.getValue());
 
 		}
 		System.out.println("\b******Main Course dishes :\b*****");
-		HashMap<String, Double> mainmap = (main.getmainmap());
+		HashMap<String, Double> mainmap = (main.getFoodListMap());
 		for (Entry<String, Double> i : mainmap.entrySet()) {
 			System.out.println(i.getKey() + " : " + i.getValue());
 
 		}
 		System.out.println("\b******Desert Items :\b*****");
-		HashMap<String, Double> desertmap = (des.getDesertMap());
+		HashMap<String, Double> desertmap = (des.getFoodListMap());
 		for (Entry<String, Double> i : desertmap.entrySet()) {
 			System.out.println(i.getKey() + " : " + i.getValue());
 		}
